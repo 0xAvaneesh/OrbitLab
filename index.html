@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbit Explorer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="logo" href="./">orbit<span>.</span></a>
+
+        <div class="header-buttons">
+            <button id="pause-button">Pause</button>
+            <button id="reset-button">Reset view</button>
+        </div>
+    </header>
+
+    <main>
+        <aside class="planet-panel">
+            <p class="section-label">SOLAR SYSTEM</p>
+            <div id="planet-list"></div>
+            <p class="side-note">Choose a world to explore it.</p>
+        </aside>
+
+        <section id="solar-system">
+            <div id="loading">Loading the solar system...</div>
+            <div id="scene-error" hidden>
+                The solar system couldn't load.
+            </div>
+            <div class="scene-caption">Our solar system <span>·</span> 8 planets</div>
+        </section>
+
+        <aside class="details-panel">
+            <p class="section-label" id="body-type">PLANET DETAILS</p>
+
+            <div class="intro">
+                <h1 id="planet-name">The Solar System</h1>
+                <p id="planet-description">
+                    Pick a planet on the left or click one in space to learn more.
+                </p>
+            </div>
+
+            <div class="planet-facts">
+                <div class="fact">
+                    <span>Diameter</span>
+                    <strong id="diameter">—</strong>
+                </div>
+                <div class="fact">
+                    <span>From the Sun</span>
+                    <strong id="distance">—</strong>
+                </div>
+                <div class="fact">
+                    <span>Length of day</span>
+                    <strong id="day-length">—</strong>
+                </div>
+                <div class="fact">
+                    <span>Length of year</span>
+                    <strong id="year-length">—</strong>
+                </div>
+                <div class="fact">
+                    <span>Gravity</span>
+                    <strong id="gravity">—</strong>
+                </div>
+            </div>
+
+            <a id="nasa-link"
+               href="https://science.nasa.gov/solar-system/"
+               target="_blank"
+               rel="noopener noreferrer">
+                Read more at NASA ↗
+            </a>
+        </aside>
+    </main>
+
+    <footer>
+        <span class="footer-note">A little trip around our neighbourhood.</span>
+
+        <div class="speed-control">
+            <label for="speed-control">Orbit speed</label>
+            <select id="speed-control">
+                <option value="0.25">0.25×</option>
+                <option value="0.5">0.5×</option>
+                <option value="1" selected>1×</option>
+                <option value="2">2×</option>
+                <option value="5">5×</option>
+            </select>
+        </div>
+
+        <span id="simulation-state">Simulation running</span>
+    </footer>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

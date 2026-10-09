@@ -1,0 +1,261 @@
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    color-scheme: dark;
+    font-family: Arial, sans-serif;
+    color: #e5e7eb;
+    background: #08090c;
+}
+
+body {
+    margin: 0;
+    font-size: 14px;
+}
+
+button, select {
+    font: inherit;
+    cursor: pointer;
+}
+
+.topbar {
+    height: 54px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #25262b;
+}
+
+.logo {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #91baff;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+button {
+    padding: 8px 11px;
+    color: #ddd;
+    background: #15161a;
+    border: 1px solid #303138;
+    border-radius: 4px;
+}
+
+button:hover {
+    background: #252730;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 155px minmax(0, 1fr) 220px;
+    gap: 18px;
+    padding: 18px;
+}
+
+.planet-panel, .details-panel {
+    min-width: 0;
+    padding-top: 10px;
+}
+
+.section-label {
+    margin: 0 0 16px;
+    color: #858b98;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+#planet-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.planet-option {
+    width: 100%;
+    text-align: left;
+    border-color: transparent;
+    background: transparent;
+}
+
+.planet-option.active {
+    color: white;
+    background: #1c2432;
+    border-color: #35445c;
+}
+
+.side-note, #planet-description {
+    color: #969ba7;
+    line-height: 1.6;
+}
+
+#solar-system {
+    position: relative;
+    height: min(75vh, 760px);
+    min-height: 430px;
+    overflow: hidden;
+    background: #03040a;
+    border: 1px solid #252831;
+}
+
+#solar-system canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#loading, #scene-error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #bfc5d1;
+    pointer-events: none;
+}
+
+#scene-error {
+    color: #ff9999;
+}
+
+.scene-caption {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    color: #999eaa;
+    font-size: 12px;
+    pointer-events: none;
+}
+
+.details-panel {
+    padding-left: 16px;
+    border-left: 1px solid #25262b;
+}
+
+#planet-name {
+    margin: 0 0 10px;
+    color: #fff;
+    font-size: 23px;
+    font-weight: 600;
+}
+
+#planet-description {
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.fact {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 12px 0;
+    border-bottom: 1px solid #25262b;
+}
+
+.fact span {
+    color: #9297a3;
+    font-size: 12px;
+}
+
+.fact strong {
+    font-weight: 500;
+    overflow-wrap: anywhere;
+}
+
+#nasa-link {
+    display: inline-block;
+    margin-top: 18px;
+    color: #a9c7ff;
+    text-decoration: none;
+}
+
+#nasa-link:hover {
+    text-decoration: underline;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    padding: 14px 20px;
+    border-top: 1px solid #25262b;
+    color: #969ba7;
+}
+
+.speed-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+}
+
+select {
+    padding: 7px;
+    color: #ddd;
+    background: #15161a;
+    border: 1px solid #303138;
+    border-radius: 4px;
+}
+
+@media (max-width: 900px) {
+    main {
+        grid-template-columns: 130px minmax(0, 1fr);
+    }
+
+    .details-panel {
+        grid-column: 1 / -1;
+        border-left: 0;
+        border-top: 1px solid #25262b;
+        padding: 16px 0;
+    }
+
+    .planet-facts {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0 18px;
+    }
+}
+
+@media (max-width: 560px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        padding: 12px;
+        gap: 12px;
+    }
+
+    #planet-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .planet-option {
+        width: auto;
+    }
+
+    #solar-system {
+        height: 55vh;
+        min-height: 320px;
+    }
+
+    .speed-control {
+        margin-left: 0;
+    }
+
+    .topbar, footer {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
